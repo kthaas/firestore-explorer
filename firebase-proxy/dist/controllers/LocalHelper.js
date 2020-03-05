@@ -12,13 +12,8 @@ const firestore_1 = require("@google-cloud/firestore");
 const grpc = require("@grpc/grpc-js");
 // Create a new client
 const firestore = new firestore_1.Firestore({
-    servicePath: "localhost",
-    port: 8080,
-    projectId: "firebase-explorer-test",
-    sslCreds: grpc.credentials.createInsecure(),
-    customHeaders: {
-        Authorization: "Bearer owner"
-    }
+    host: "localhost",
+    port: 8080
 });
 exports.handleLocalQuery = (query) => __awaiter(this, void 0, void 0, function* () {
     let data = {};

@@ -4,3 +4,4 @@ firebase-local/hs_err*
 firebase-local/replay*
 FirebaseAdminConfig.json
 firebase-proxy/data
+node_modules

@@ -12,13 +12,8 @@ const grpc = require("@grpc/grpc-js");
 const fs = __importStar(require("fs"));
 exports.generateFirestoreEmulatedInstance = (projectId) => {
     return new firestore_1.Firestore({
-        servicePath: "localhost",
-        port: 8080,
-        projectId,
-        sslCreds: grpc.credentials.createInsecure(),
-        customHeaders: {
-            Authorization: "Bearer owner"
-        }
+        host: "localhost",
+        port: 8080
     });
 };
 exports.generateCloudEmulatedInstance = (server) => {
