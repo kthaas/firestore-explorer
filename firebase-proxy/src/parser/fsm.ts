@@ -13,6 +13,8 @@ export interface ParserStateSchema {
     listCollections: {};
     doc: {};
     get: {};
+    set: {};
+    update: {};
   };
 }
 
@@ -25,7 +27,9 @@ export type ParsedEvent =
   | { type: "where"; node?: Identifier | CallExpression }
   | { type: "select"; node?: Identifier | CallExpression }
   | { type: "orderBy"; node?: Identifier | CallExpression }
-  | { type: "get"; node?: Identifier | CallExpression };
+  | { type: "get"; node?: Identifier | CallExpression }
+  | { type: "set"; node?: Identifier | CallExpression }
+  | { type: "update"; node?: Identifier | CallExpression };
 
 export interface ParsingContext {
   parsedUntilIndex: 0;
@@ -107,10 +111,20 @@ export const fsmGenerator = () =>
           on: {
             collection: "collection",
             listCollections: "listCollections",
-            get: "get"
+            get: "get",
+            set: "set",
+            update: "update"
           }
         },
         get: {
+          entry: ["processNode"],
+          type: "final"
+        },
+        set: {
+          entry: ["processNode"],
+          type: "final"
+        },
+        update: {
           entry: ["processNode"],
           type: "final"
         }

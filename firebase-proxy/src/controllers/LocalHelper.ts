@@ -3,8 +3,8 @@ import { Firestore } from "@google-cloud/firestore";
 const grpc = require("@grpc/grpc-js");
 // Create a new client
 const firestore = new Firestore({
-  host: "localhost",
-  port: 8080
+  host: "localhost:8080",
+  ssl: false
 });
 
 export const handleLocalQuery = async (query: LocalQuery) => {

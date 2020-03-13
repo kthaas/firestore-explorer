@@ -75,10 +75,20 @@ exports.fsmGenerator = () => xstate_1.Machine({
             on: {
                 collection: "collection",
                 listCollections: "listCollections",
-                get: "get"
+                get: "get",
+                set: "set",
+                update: "update"
             }
         },
         get: {
+            entry: ["processNode"],
+            type: "final"
+        },
+        set: {
+            entry: ["processNode"],
+            type: "final"
+        },
+        update: {
             entry: ["processNode"],
             type: "final"
         }

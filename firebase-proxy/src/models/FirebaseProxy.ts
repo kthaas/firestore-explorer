@@ -6,8 +6,8 @@ import { CloudServer } from "./Server";
 
 export const generateFirestoreEmulatedInstance = (projectId: string) => {
   return new Firestore({
-    host: "localhost",
-    port: 8080
+    host: "localhost:8080",
+    ssl: false
   });
 };
 
