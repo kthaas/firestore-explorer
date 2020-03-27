@@ -107,7 +107,7 @@ export default class ExploreApp extends Vue {
   @Prop(String) readonly serverId!: string;
   server!: Server;
   isServerAvailable = false;
-  query: string = "db.listCollections()";
+  query: string = "db.collection('users').limit(10).get()";
   editorOptions = {
     minimap: {
       enabled: false
