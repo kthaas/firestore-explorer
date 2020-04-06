@@ -9,7 +9,8 @@ import {
   QueryDocumentSnapshot,
   QuerySnapshot,
   CollectionReference,
-  Firestore
+  Firestore,
+  FieldValue
 } from "@google-cloud/firestore";
 import { db } from "../json-db";
 import { Server, EmulatedServer, CloudServer } from "../models/Server";
@@ -117,6 +118,7 @@ export const handleQuery = async ({ payload: { server, query } }: Query) => {
 
 const safeEvalQuery = async (firestore: Firestore, query: string) => {
   const db = firestore;
+  const del = FieldValue.delete();
   const result = await eval(query);
   return result;
 };

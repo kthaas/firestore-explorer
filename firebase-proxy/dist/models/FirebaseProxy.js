@@ -13,7 +13,8 @@ const fs = __importStar(require("fs"));
 exports.generateFirestoreEmulatedInstance = (projectId) => {
     return new firestore_1.Firestore({
         host: "localhost:8080",
-        ssl: false
+        ssl: false,
+        projectId
     });
 };
 exports.generateCloudEmulatedInstance = (server) => {

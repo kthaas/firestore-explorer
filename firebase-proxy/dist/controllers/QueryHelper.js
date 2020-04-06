@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const parser_1 = require("../parser");
 const FirebaseProxy_1 = require("../models/FirebaseProxy");
+const firestore_1 = require("@google-cloud/firestore");
 const json_db_1 = require("../json-db");
 exports.handleQuery = ({ payload: { server, query } }) => __awaiter(this, void 0, void 0, function* () {
     let data = {};
@@ -109,6 +110,7 @@ exports.handleQuery = ({ payload: { server, query } }) => __awaiter(this, void 0
 });
 const safeEvalQuery = (firestore, query) => __awaiter(this, void 0, void 0, function* () {
     const db = firestore;
+    const del = firestore_1.FieldValue.delete();
     const result = yield eval(query);
     return result;
 });
