@@ -36,14 +36,12 @@ Clone the repository
 
 Follow these steps when using for the first time.
 
-- `nvm use`
 - `yarn`
 - `yarn onetime_setup`
 - `yarn serve`
 
 Subsequent usage
 
-- `nvm use`
 - `yarn serve`
 
 You will see that [Firebase Proxy](#firebase-proxy) is running at port 7000 and [Explorer](#explorer) running at port 8000
